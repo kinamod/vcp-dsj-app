@@ -11,8 +11,8 @@ import ImageHero from "./components/Hero/ImageHero";
 import SplitHero from "./components/Hero/SplitHero";
 import TextHero from "./components/Hero/TextHero";
 
-//builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
-builder.init('ad14caa2dcd041ed8261eed483ddd361');
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
+//builder.init('ad14caa2dcd041ed8261eed483ddd361');
 
 Builder.register("editor.settings", {
   styleStrictMode: false,

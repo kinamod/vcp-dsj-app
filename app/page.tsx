@@ -12,7 +12,9 @@ interface PageProps {
 
 export default async function Homepage(props: PageProps) {
   const builderModelName = "page";
-
+  let localeNow = new Intl.DateTimeFormat().resolvedOptions().locale;
+  // localeNow="fr-FR"
+  //localeNow = "fr-FR";
   const content = await builder
     // Get the page content from Builder with the specified options
     .get(builderModelName, {
@@ -23,10 +25,13 @@ export default async function Homepage(props: PageProps) {
           enrich: true
         }
       },
+      options: {
+        locale: localeNow
+      }
     })
     // Convert the result to a promise
-    .toPromise();
-
+    .toPromise(); 
+    console.log ("localenow - - "+localeNow)
   return (
     <>
       {/* Render the Builder page */}
