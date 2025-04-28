@@ -14,12 +14,14 @@ interface PageProps {
 export default async function Page(props: PageProps) {
   const builderModelName = "page";
   let localeNow = new Intl.DateTimeFormat().resolvedOptions().locale;
+  const {page} = await props?.params;
+
   const content = await builder
     // Get the page content from Builder with the specified options
     .get(builderModelName, {
       userAttributes: {
         // Use the page path specified in the URL to fetch the content
-        urlPath: "/" + (props?.params?.page?.join("/") || "")
+        urlPath: "/" + (page?.join("/") || "")
       },
       options: {
         locale: localeNow
