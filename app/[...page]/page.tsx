@@ -4,9 +4,9 @@ import { RenderBuilderContent } from "../../components/builder";
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 interface PageProps {
-  params: {
+  params: Promise<{
     page: string[];
-  };
+  }>;
 }
 
 // export const revalidate = 500;

@@ -5,9 +5,9 @@ builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 
 interface PageProps {
-  params: {
+  params: Promise<{
     page: string[];
-  };
+  }>;
 }
 
 export default async function Homepage(props: PageProps) {

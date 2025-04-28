@@ -6,9 +6,9 @@ import { RenderBuilderContent } from "@/components/builder";
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     handle: string;
-  };
+  }>;
 }
 
 export default async function ProductPage(props: ProductPageProps) {
@@ -21,7 +21,7 @@ export default async function ProductPage(props: ProductPageProps) {
     .get(builderProductDataModel, {
       query: {
         data: {
-          handle: props?.params?.handle
+          handle: (await props?.params)?.handle
         }
       }
     })
@@ -33,7 +33,7 @@ export default async function ProductPage(props: ProductPageProps) {
     .get(builderProductDetailsModel, {
       userAttributes: {
         // Use the page path specified in the URL to fetch the content
-        product: props?.params?.handle,
+        product: (await props?.params)?.handle,
         options: { enrich: true }
       },
     })
