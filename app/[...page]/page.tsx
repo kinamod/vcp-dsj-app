@@ -20,7 +20,7 @@ export default async function Page(props: PageProps) {
     .get(builderModelName, {
       userAttributes: {
         // Use the page path specified in the URL to fetch the content
-        urlPath: "/",
+        urlPath: "/" + ((await props?.params)?.page?.join("/") || ""),
       },
       options: {
         locale: localeNow
