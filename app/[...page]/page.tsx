@@ -1,5 +1,7 @@
+
 import { builder } from "@builder.io/sdk";
-import { RenderBuilderContent } from "../../components/builder";
+import { RenderBuilderContent } from "@/components/builder";
+import LocaleComponent from "@/components/LocaleComponent";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -12,8 +14,11 @@ interface PageProps {
 // export const revalidate = 500;
 
 export default async function Page(props: PageProps) {
+  
   const builderModelName = "page";
-  let localeNow = new Intl.DateTimeFormat().resolvedOptions().locale;
+  let localeNow = Intl.NumberFormat().resolvedOptions().locale;
+
+  //localeNow='rn-US'
 
   const content = await builder
     // Get the page content from Builder with the specified options
@@ -23,12 +28,16 @@ export default async function Page(props: PageProps) {
         urlPath: "/" + ((await props?.params)?.page?.join("/") || ""),
       },
       options: {
-        locale: localeNow
+         locale: localeNow
       }
     })
     // Convert the result to a promise
     .toPromise();
 
+    console.log ("localenow 2 - "+localeNow)
+    console.log ("localenow 6 - "+Intl.NumberFormat().resolvedOptions().locale)
+    
+    //console.log ("localeSelecetd 1 - "+localeSelected)
   return (
     <>
       {/* Render the Builder page */}

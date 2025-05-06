@@ -6,17 +6,14 @@ import { Button } from "../ui/button"
 import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { AuthSlider } from "./AuthSlider"
-import { CartSlider } from "./CartSlider"
 import { SideNav } from "./SideNav"
 import { BuilderContent } from '@builder.io/react';
+
 
 
 export function Header({ headerContent }: any) {
@@ -33,7 +30,7 @@ export function Header({ headerContent }: any) {
               <Link href="/" passHref>
                 <img
                   className="h-6"
-                  src="https://cdn.builder.io/api/v1/image/assets%2Fa87584e551b6472fa0f0a2eb10f2c0ff%2F692369ff646645349e68a86b43fc7a38"
+                  src="https://cdn.glitch.global/bcac642c-3736-4e2f-a27f-9f3a63e5f888/b6e1744e-08f3-4029-b420-a88949681799.image.png?v=1745836345331"
                   alt="Builder.io Logo"
                   loading="lazy"
                 />
@@ -55,14 +52,16 @@ export function Header({ headerContent }: any) {
               </NavigationMenuList>
             </NavigationMenu>
             <div className="flex items-center">
-              <CartSlider variant="black" />
               <AuthSlider variant="black" />
+              {/* <LocaleComponent />
+              <LocaleSelector /> */}
             </div>
           </div>
         </header>
       )
       }
     </BuilderContent>
+    
   );
 }
 

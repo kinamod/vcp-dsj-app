@@ -10,6 +10,8 @@ import IconCard from "./components/Card/IconCard";
 import ImageHero from "./components/Hero/ImageHero";
 import SplitHero from "./components/Hero/SplitHero";
 import TextHero from "./components/Hero/TextHero";
+import LocaleSelector from "./components/LocaleSelector";
+import LocaleComponent from "./components/LocaleComponent";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 //builder.init('ad14caa2dcd041ed8261eed483ddd361');
@@ -375,4 +377,12 @@ Builder.registerComponent(Footer, {
 
 Builder.registerComponent(Header, {
   name: "Header",
+});
+
+Builder.registerComponent(LocaleSelector, {
+  name: "Locale Selector",
+});
+
+Builder.registerComponent(LocaleComponent, {
+  name: "Locale Component",
 });
